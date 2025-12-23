@@ -794,24 +794,32 @@ section {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem 1.5rem;
-    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    background: var(--bg-section);
     border-radius: 8px;
     text-decoration: none;
     color: var(--text-primary);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.contact-link.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .contact-link:hover {
-    transform: translateY(-2px);
+    transform: translateY(-10px) scale(1.02);
     border-color: var(--primary-color);
-    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+    box-shadow: 0 10px 30px rgba(229, 9, 20, 0.2);
     color: var(--primary-color);
 }
 
 .contact-icon {
     font-size: 1.5rem;
+    color: var(--primary-color);
 }
 
 /* Footer */
@@ -880,6 +888,11 @@ section {
         gap: 2rem;
     }
     
+    .contact-links {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
     .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -899,6 +912,43 @@ section {
         width: 60px;
         height: 60px;
         font-size: 1.5rem;
+    }
+
+    /* Prevent sections from clipping content on small screens */
+    section {
+        min-height: auto;
+        padding: 2.5rem 0;
+        overflow: visible;
+    }
+
+    /* Tweak About section for narrow viewports */
+    .about {
+        padding: 0.5rem 0 1.5rem 0;
+    }
+
+    .about-content {
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-right: 0;
+    }
+
+    .about-stats {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .about-stats .stat {
+        padding: 1rem;
+    }
+
+    .about-stats .stat-number {
+        font-size: 1.75rem;
     }
 }
 
@@ -921,5 +971,19 @@ section {
     
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Reduce About section text on very small screens to avoid clipping */
+    .about-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .about-stats .stat-number {
+        font-size: 1.4rem;
     }
 }
