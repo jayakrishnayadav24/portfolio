@@ -109,6 +109,7 @@ function netflixScrollEffects() {
     const windowHeight = window.innerHeight;
     const sections = document.querySelectorAll('section');
     
+    
     sections.forEach((section, index) => {
         const rect = section.getBoundingClientRect();
         const sectionTop = rect.top;
@@ -181,7 +182,7 @@ const netflixRevealObserver = new IntersectionObserver((entries) => {
             entry.target.classList.add('revealed');
             
             // Staggered animations for cards with Netflix timing
-            const cards = entry.target.querySelectorAll('.experience-card, .skill-category, .blog-platform');
+            const cards = entry.target.querySelectorAll('.experience-card, .skill-category, .blog-platform, .contact-link');
             cards.forEach((card, index) => {
                 setTimeout(() => {
                     card.classList.add('visible');
@@ -319,6 +320,20 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.transform = 'translateY(0)';
         }, 500 + (index * 150));
     });
+    // Ensure page starts at top on load or when restored from bfcache
+    try {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    } catch (e) {
+        // ignore
+    }
+    window.scrollTo(0, 0);
+});
+
+// When page is shown (including bfcache restores), ensure scroll at top
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        window.scrollTo(0, 0);
+    }
 });
 
 // Attach optimized scroll listener
