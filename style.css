@@ -950,6 +950,41 @@ section {
     .about-stats .stat-number {
         font-size: 1.75rem;
     }
+
+    /* Responsive fixes for profile image to prevent overflow */
+    .hero {
+        padding-bottom: 3rem;
+        overflow: visible;
+    }
+
+    .profile-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
+    .profile-image {
+        position: static;
+        right: auto;
+        top: auto;
+        margin: 0 auto;
+        z-index: 10;
+        cursor: default;
+        user-select: none;
+        transform: none;
+    }
+
+    .profile-image img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--primary-color);
+        box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+        transition: all 0.3s ease;
+    }
 }
 
 @media (max-width: 480px) {
@@ -985,5 +1020,15 @@ section {
 
     .about-stats .stat-number {
         font-size: 1.4rem;
+    }
+
+    /* Smaller avatar on very small screens */
+    .profile-image {
+        margin-top: 0.5rem;
+    }
+
+    .profile-image img {
+        width: 110px;
+        height: 110px;
     }
 }
