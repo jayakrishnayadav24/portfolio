@@ -957,9 +957,14 @@ section {
         height: auto;
         min-height: 100vh;
         overflow: visible;
-        padding-top: 80px;
-        padding-bottom: 2rem;
+        padding-top: 90px;
+        padding-bottom: 3rem;
         align-items: flex-start;
+    }
+
+    /* Push hero text content below the fixed navbar */
+    .hero-content {
+        padding-top: 1rem;
     }
 
     /* Full-width centred column for the visual block */
