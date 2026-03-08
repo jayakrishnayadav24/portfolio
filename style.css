@@ -952,23 +952,35 @@ section {
     }
 
     /* ── Mobile avatar fix ────────────────────────────────────────── */
-    /* Allow avatar to stay visible; hero can overflow vertically */
+    /* Let hero grow with its content instead of clipping at 100vh */
     .hero {
+        height: auto;
+        min-height: 100vh;
         overflow: visible;
+        padding-top: 80px;
+        padding-bottom: 2rem;
+        align-items: flex-start;
     }
 
-    /* Scale down and centre the cloud animation container */
+    /* Full-width centred column for the visual block */
     .hero-visual {
-        overflow: hidden;
+        overflow: visible;
         width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
+        display: flex;
+        justify-content: center;
     }
 
     .profile-section {
-        width: 300px;
-        height: 300px;
+        position: relative;
+        width: 280px;
+        height: 280px;
         margin: 0 auto;
+    }
+
+    /* Scale cloud animation to match profile-section size */
+    .cloud-animation {
+        width: 280px;
+        height: 280px;
     }
 
     /* Centre avatar inside the cloud-animation area; clear desktop offsets */
