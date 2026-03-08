@@ -950,6 +950,43 @@ section {
     .about-stats .stat-number {
         font-size: 1.75rem;
     }
+
+    /* ── Mobile avatar fix ────────────────────────────────────────── */
+    /* Allow avatar to stay visible; hero can overflow vertically */
+    .hero {
+        overflow: visible;
+    }
+
+    /* Scale down and centre the cloud animation container */
+    .hero-visual {
+        overflow: hidden;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .profile-section {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    /* Centre avatar inside the cloud-animation area; clear desktop offsets */
+    .profile-image {
+        position: absolute;
+        right: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    .profile-image img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -985,5 +1022,11 @@ section {
 
     .about-stats .stat-number {
         font-size: 1.4rem;
+    }
+
+    /* Slightly smaller avatar on very small phones */
+    .profile-image img {
+        width: 100px;
+        height: 100px;
     }
 }
