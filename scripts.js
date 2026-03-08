@@ -3,6 +3,9 @@ let ticking = false;
 
 // Draggable Profile Image
 function initDraggableProfile() {
+    // On mobile CSS centres the avatar — skip drag to avoid inline transform conflicts
+    if (window.innerWidth <= 768) return;
+
     const profileImage = document.getElementById('draggableProfile');
     let isDragging = false;
     let currentX;
